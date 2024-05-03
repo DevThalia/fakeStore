@@ -1,15 +1,7 @@
 <template>
- 
-  <header>
-     <h1></h1>
-     <nav>
-        <p>Categorias</p>
-        <p></p>
-     </nav>
-     <body>
-        <p>{{ product.id }}</p>
-     </body>
-  </header>
+  <div>
+    <p> </p>
+  </div>
 </template>
 
 <script>
@@ -34,7 +26,7 @@ export default{
   methods:{
     async getProducto() {
             try {
-                const res = await fetch(`https://pokeapi.co/api/v2/pokemon/${this.pokemonName.trim().toLowerCase()}`);
+                const res = await fetch(`'https://fakestoreapi.com/products${ this.$route.params.id}`);
                 const data = await res.json();
                 if (!data || Object.keys(data).length === 0) {
                     this.product=null;
@@ -44,12 +36,13 @@ export default{
                 this.error = '';
             } catch (error) {
                 this.product = null;
-                this.error = "Pokemon no encontrado";
+                this.error = "Producto no encontrado";
             }
         }
   },
   mounted(){
-    //motarApp
+    this.getProducto();
+  },
   }
-  }
+  
 </script>
