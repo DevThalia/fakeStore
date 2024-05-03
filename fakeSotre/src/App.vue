@@ -26,7 +26,7 @@ export default{
   methods:{
     async getProducto() {
             try {
-                const res = await fetch(`'https://fakestoreapi.com/products${ this.$route.params.id}`);
+                const res = await fetch(`https://fakestoreapi.com/products/${this.$route.params.id}`);
                 const data = await res.json();
                 if (!data || Object.keys(data).length === 0) {
                     this.product=null;
@@ -44,5 +44,4 @@ export default{
     this.getProducto();
   },
   }
-  
 </script>
