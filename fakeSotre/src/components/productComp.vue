@@ -5,16 +5,16 @@
       <h3>{{ product.title }}</h3>
       <div class="product-info">
         <h4>Precio</h4>
-        <p>{{ product.precio }}</p>
+        <p>{{ product.price }} $</p>
 
-        <h4>Descripcion</h4>
+        <h4>Descripción</h4>
         <p>{{ product.description }}</p>
 
-        <h4>Categoria</h4>
+        <h4>Categoría</h4>
         <p>{{ product.category }}</p>
 
         <h4>Rating</h4>
-        <p>{{ product.rating }}</p>
+        <p>{{ product.rating.rate }}⭐ ({{product.rating.count }})</p>
       </div>
 
       <div class="product-info">
@@ -36,8 +36,17 @@ export default {
 </script>
 
 <style scoped>
-img {
+
+.product-content img {
   width: 100%;
+  border-radius: 0.5em; 
+}
+
+
+.product-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1em; 
 }
 
 section {
@@ -50,8 +59,33 @@ section {
   flex-direction: column;
   align-items: flex-start;
 }
-button{
-  margin: auto;
+
+button {
+  margin: auto; 
+  margin-top: 1em;
+  padding: 0.5em 2em; 
+  border: none;
+  border-radius: 0.5em;
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease; 
+}
+
+button:hover {
+  background-color: #0056b3; 
+}
+
+h3{
+  font-weight: bolder;
+  font-size: 1.5em;
+}
+
+h4{
+  font-size: 1em;
+  font-weight: bold;
+  color: #c0340d;
+  margin-top: 0.5em;
 }
 
 </style>
