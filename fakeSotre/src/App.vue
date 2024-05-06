@@ -1,17 +1,17 @@
 <template>
   <div>
-    <cartaProduct v-if="product" class="carta" :product="product"></cartaProduct>
+    <productComp v-if="product" :product="product"></productComp>
   </div>
 </template>
 
 <script>
-import cartaProduct from './components/cartaProduct.vue';
+import productComp from './components/productComp.vue';
 
 
 export default {
   name: 'App',
   components:{
-    cartaProduct
+    productComp
   },
   props:{'product':Object},
 
