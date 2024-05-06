@@ -50,6 +50,7 @@ export default {
 }
 
 section {
+  margin: 0em 1em 1em 0em;
   color: black;
   padding: 1.5em;
   background-color: rgb(255, 255, 255);
