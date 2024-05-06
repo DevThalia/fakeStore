@@ -23,7 +23,7 @@
     export default {
       name: 'cartaProduct',
       props:{
-        producto:Object
+        product:Object
       }
     }
   </script>

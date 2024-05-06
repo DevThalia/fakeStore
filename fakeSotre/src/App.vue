@@ -1,8 +1,6 @@
 <template>
   <div>
-    <p v-if="product">{{ product.title }}</p>
-    <p v-else>Cargando...</p>
-    <cartaProduct class="carta" :product="product"></cartaProduct>
+    <cartaProduct v-if="product" class="carta" :product="product"></cartaProduct>
   </div>
 </template>
 
@@ -15,7 +13,7 @@ export default {
   components:{
     cartaProduct
   },
-  props:{'poduct-prop':Object},
+  props:{'product':Object},
 
   data() {
     return {
