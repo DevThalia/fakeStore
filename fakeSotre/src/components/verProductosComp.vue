@@ -1,6 +1,9 @@
 <template>
     <div>
-      <productComp v-for="(product, index) in products" :key="index" :product="product"></productComp>
+      <h2>Ver productos</h2>
+      <div>
+        <productComp v-for="(product, index) in products" :key="index" :product="product"></productComp>
+      </div>
     </div>
   </template>
   
@@ -39,12 +42,17 @@
   </script>
   
   <style scoped>
-
-  div{
+  h2 {
+    width: 100%;
+    padding: 0em 0em 0.25em 1em;
+    border-bottom: 2px solid #333; 
+    margin-bottom: 1.25em;
+  }
+  
+  div {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
   }
-
   </style>
   

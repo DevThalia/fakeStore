@@ -33,3 +33,9 @@ a,
     padding: 0 2rem;*/
   }
 }
+
+h2{
+  text-transform:uppercase;
+  font: bolder;
+  margin-bottom: 1em;
+}
