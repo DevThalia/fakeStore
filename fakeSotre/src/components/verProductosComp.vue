@@ -18,7 +18,6 @@
     data() {
       return {
         products: null,
-        product: null
       };
     },
     mounted() {
