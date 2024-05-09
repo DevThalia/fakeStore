@@ -20,7 +20,8 @@ export default {
     headerComp,
     footerComp,
     verProductosComp,
-    detalleProductoComp
+    detalleProductoComp,
+    agregarProducto,
   },
   data() {
     return {
@@ -43,6 +44,14 @@ export default {
     },
     handleAddProducto() {//por desarrollar pero con funcionamiento similar a handleVerPorductos
       console.log("click en pagina de añadir producto");
+      this.verProductos = false;
+      this.verAgregarProducto = true;
+    }
+
+    handleAgregarProducto(nuevoProducto){
+      console.log('Nuevo producto: ' + nuevoProducto.title);
+      this.verProductos = true;
+      this.verAgregarProducto = false;
     }
   }
 }
