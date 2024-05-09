@@ -20,7 +20,7 @@
         <p>{{ product.rating.rate }}⭐ ({{ product.rating.count }})</p>
       </div>
     </div>
-    <button>Ver mas</button>
+    <button @click="verMas">Ver mas</button>
 
   </section>
 </template>
@@ -30,6 +30,11 @@ export default {
   name: 'productComp',
   props: {
     product: Object
+  },
+  methods:{
+    verMas(){
+      this.$emit('ver-mas', this.product.id);
+    }
   }
 }
 </script>

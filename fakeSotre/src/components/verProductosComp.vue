@@ -2,7 +2,7 @@
     <div>
       <h2>Ver productos</h2>
       <div>
-        <productComp v-for="(product, index) in products" :key="index" :product="product"></productComp>
+        <productComp v-for="(product, index) in products" :key="index" :product="product" @ver-mas="handleVerMas"></productComp>
       </div>
     </div>
   </template>
@@ -22,6 +22,12 @@
       return {
         products: null,
       };
+    },
+    methods:{
+        handleVerMas(productId){
+            console.log('productId:', productId);
+            this.$emit('ver-mas',productId);
+        }
     },
     mounted() {
       fetch('https://fakestoreapi.com/products')
