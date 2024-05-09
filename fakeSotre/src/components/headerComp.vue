@@ -29,6 +29,7 @@
         border-radius: 1em;
         box-shadow: 0.5em 0.5em crimson;
         margin-bottom: 2em;
+        height: fit-content;
     }
 
     nav{

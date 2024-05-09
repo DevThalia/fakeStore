@@ -45,7 +45,6 @@ export default {
   border-radius: 0.5em;
 }
 
-
 .product-content {
   display: flex;
   flex-direction: column;
@@ -85,7 +84,7 @@ button:hover {
 
 h3 {
   font-weight: bolder;
-  font-size: 1.5em;
+  font-size: 1.25em;
 }
 
 h4 {

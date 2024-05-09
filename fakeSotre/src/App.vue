@@ -1,12 +1,12 @@
 <template>
-  <div>
+
     <!--codigo funcional comentado
       <productComp v-if="product" :product="product"></productComp>
     -->
     <headerComp></headerComp>
     <verProductosComp></verProductosComp>
     <footerComp></footerComp>
-  </div>
+
 </template>
 
 <script>
@@ -24,3 +24,9 @@ export default {
   },
 }
 </script>
+
+<style>
+  div{
+    width: 100%;
+  }
+</style>
