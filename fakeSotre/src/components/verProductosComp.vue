@@ -15,9 +15,6 @@
     components: {
       productComp
     },
-    props: {
-      product: Object
-    },
     data() {
       return {
         products: null,
