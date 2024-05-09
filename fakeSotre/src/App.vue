@@ -3,18 +3,21 @@
     <!--codigo funcional comentado
       <productComp v-if="product" :product="product"></productComp>
     -->
+    <headerComp></headerComp>
     <productComp v-for="(product, index) in products" :key="index" :product="product"></productComp>
   </div>
 </template>
 
 <script>
 import productComp from './components/productComp.vue';
+import headerComp from './components/headerComp.vue';
 
 
 export default {
   name: 'App',
   components:{
-    productComp
+    productComp,
+    headerComp
   },
   props:{'product':Object},
 
