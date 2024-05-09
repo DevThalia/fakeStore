@@ -1,8 +1,8 @@
 <template>
 
-  <headerComp @ver-productos="handleVerProductos" @add-producto="handleAddProducto"></headerComp>
+  <headerComp @ver-producto="handleVerProductos" @add-producto="handleAddProducto"></headerComp>
   <verProductosComp v-show="verProductos" @ver-mas="handleVerMas"></verProductosComp>
-  <detalleProductoComp v-if="detalleId" v-show="verDetalle" :productId="detalleId"></detalleProductoComp>
+  <detalleProductoComp v-if="detalleId && !verProductos" v-show="verDetalle" :productId="detalleId"></detalleProductoComp>
   <footerComp></footerComp>
 
 </template>
@@ -26,7 +26,7 @@ export default {
     return {
       verProductos: true,
       verDetalle: false,
-      detalleId:null
+      detalleId: null
     };
   },
   methods: {
@@ -37,6 +37,7 @@ export default {
       this.detalleId = productId;
     },
     handleVerProductos() {
+      console.log("ver productosss")
       this.verDetalle = false;
       this.verProductos = true;
     },

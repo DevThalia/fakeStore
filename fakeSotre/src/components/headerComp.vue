@@ -15,13 +15,9 @@
     name: 'headerComp',
     methods: {
       verProductos() {
-        // Lógica para mostrar todos los productos
-        console.log('click pagina ver productos');
         this.$emit('ver-producto');
       },
       uploadProducto() {
-        // Lógica para subir un producto
-        console.log('click pagina de añadir');
         this.$emit('add-producto');
       }
     }
