@@ -26,22 +26,22 @@ export default {
     return {
       verProductos: true,
       verDetalle: false,
-      detalleId: null
+      detalleId: null//id del producto que se quiere ver en grande, si lo hay
     };
   },
   methods: {
-    handleVerMas(productId) {
+    handleVerMas(productId) {//esto gestiona cuando se hace click al boton de ver mas en cada producto
       console.log("click en ver mas")
       this.verProductos = false;
       this.verDetalle = true;
       this.detalleId = productId;
     },
-    handleVerProductos() {
+    handleVerProductos() {//gestiona la visibilidad del elemento verProductosComp, y quita visibilidad al resto
       console.log("ver productosss")
       this.verDetalle = false;
       this.verProductos = true;
     },
-    handleAddProducto() {
+    handleAddProducto() {//por desarrollar pero con funcionamiento similar a handleVerPorductos
       console.log("click en pagina de añadir producto");
     }
   }
