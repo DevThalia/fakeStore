@@ -3,6 +3,10 @@
   <headerComp @ver-producto="handleVerProductos" @add-producto="handleAddProducto"></headerComp>
   <verProductosComp v-show="verProductos" @ver-mas="handleVerMas"></verProductosComp>
   <detalleProductoComp v-if="detalleId && !verProductos" v-show="verDetalle" :productId="detalleId"></detalleProductoComp>
+  <agregarProducto v-if="verAgregar" v-show="verAgregar"></agregarProducto>
+  <eliminarProducto v-if="verEliminar" v-show="verEliminar"></eliminarProducto>
+  <modificarProducto v-if="verModificar" v-show="verModificar"></modificarProducto>
+  
   <footerComp></footerComp>
 
 </template>
@@ -51,6 +55,7 @@ export default {
       this.verProductos = false;
       this.verDetalle = false;
       this.verAgregar = true;
+      verEliminar = true;
     }
   }
 }
