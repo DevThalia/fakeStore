@@ -11,8 +11,10 @@
 import headerComp from './components/headerComp.vue';
 import footerComp from './components/footerComp.vue';
 import verProductosComp from './components/verProductosComp.vue';
-import detalleProductoComp from './components/detalleProductoComp.vue'
-
+import detalleProductoComp from './components/detalleProductoComp.vue';
+import agregarProducto from './components/agregarProducto.vue';
+import eliminarProducto from './components/eliminarProducto.vue';
+import modificarProducto from './components/modificarProducto.vue';
 
 export default {
   name: 'App',
@@ -22,6 +24,8 @@ export default {
     verProductosComp,
     detalleProductoComp,
     agregarProducto,
+    eliminarProducto,
+    modificarProducto,
   },
   data() {
     return {
@@ -45,13 +49,8 @@ export default {
     handleAddProducto() {//por desarrollar pero con funcionamiento similar a handleVerPorductos
       console.log("click en pagina de añadir producto");
       this.verProductos = false;
-      this.verAgregarProducto = true;
-    }
-
-    handleAgregarProducto(nuevoProducto){
-      console.log('Nuevo producto: ' + nuevoProducto.title);
-      this.verProductos = true;
-      this.verAgregarProducto = false;
+      this.verDetalle = false;
+      this.verAgregar = true;
     }
   }
 }
