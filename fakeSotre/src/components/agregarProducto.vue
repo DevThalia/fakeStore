@@ -44,7 +44,7 @@ export default {
   methods: {
     agregarProducto() {
       // Emitir evento para agregar el nuevo producto
-      
+      //conexion a la api y hacer el put a la api
       // Limpiar el formulario después de agregar el producto
       this.limpiarFormulario();
     },
