@@ -44,7 +44,7 @@ export default {
   methods: {
     agregarProducto() {
       // Emitir evento para agregar el nuevo producto
-      this.$emit('agregar-producto', this.newProduct);
+      
       // Limpiar el formulario después de agregar el producto
       this.limpiarFormulario();
     },

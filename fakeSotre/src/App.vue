@@ -55,7 +55,7 @@ export default {
       this.verProductos = false;
       this.verDetalle = false;
       this.verAgregar = true;
-      verEliminar = true;
+      verEliminar = false;
     }
   }
 }
