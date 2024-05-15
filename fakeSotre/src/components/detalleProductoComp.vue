@@ -7,8 +7,11 @@
       <p><span>Descripción:</span> {{ product.description }}</p>
       <p><span>Categoría:</span> {{ product.category.name }}</p>
       <img :src="product.images[0]" :alt="product.title">
-      <button @click="handleModificar">Modificar</button>
-      <button @click="handleEliminar">Eliminar</button>
+      <div>
+        <button @click="handleModificar">Modificar</button>
+        <button @click="handleEliminar">Eliminar</button>
+      </div>
+      
     </div>
     <div v-else>
       Cargando...
@@ -78,6 +81,7 @@ h3 {
 
 .producto img {
   width: 80%;
+  max-width: 40em;
 }
 
 span {
