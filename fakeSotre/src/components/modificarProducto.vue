@@ -15,12 +15,8 @@
         <textarea id="description" v-model="newProduct.description" required></textarea>
       </div>
       <div>
-        <label for="category">Categoría:</label>
-        <input type="text" id="category" v-model="newProduct.category" required>
-      </div>
-      <div>
         <label for="image">URL de la imagen:</label>
-        <input type="url" id="image" v-model="newProduct.image" required>
+        <input type="url" id="image" v-model="newProduct.images[0]" required>
       </div>
       <button @click="guardarCambios">Guardar Cambios</button>
       <button @click="handleCancelar">Cancelar</button>
@@ -42,12 +38,17 @@ export default {
   data() {
     return {
       product: null,
-      newProduct: null,
+      newProduct: {
+        title: '',
+        price: 0,
+        description: '',
+        images: '' ,
+      }
     };
   },
   mounted() {
     if (this.productId) {
-      axios.get(`/products/${this.productId}`)
+      axios.get(`products/${this.productId}`)
         .then(response => {
           this.product = response.data;
           this.newProduct = { ...this.product };
@@ -60,7 +61,12 @@ export default {
   methods: {
     guardarCambios() {
       if (this.newProduct) {
-        axios.put(`/products/${this.productId}`, this.newProduct)
+        axios.put(`products/${this.productId}`, {
+          title: this.newProduct.title,
+          price: this.newProduct.price,
+          description: this.newProduct.description,
+          images: this.newProduct.images,
+        })
           .then(response => {
             console.log('Producto actualizado:', response.data);
             this.$emit('ver-mas', this.productId);
@@ -73,7 +79,6 @@ export default {
       }
     },
     handleCancelar() {
-      // Emitimos un evento para cancelar la modificación
       this.$emit('ver-mas', this.productId);
     }
   }
@@ -84,7 +89,7 @@ export default {
 h2 {
   width: 100%;
   padding: 0em 0em 0.25em 1em;
-  border-bottom: 2px solid #333; 
+  border-bottom: 2px solid #333;
   margin-bottom: 1.25em;
 }
 

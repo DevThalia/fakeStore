@@ -5,9 +5,8 @@
       <h3>{{ product.title }}</h3>
       <p><span>Precio:</span> {{ product.price }} $</p>
       <p><span>Descripción:</span> {{ product.description }}</p>
-      <p><span>Categoría:</span> {{ product.category }}</p>
-      <p><span>Rating:</span> {{ product.rating.rate }}⭐ ({{ product.rating.count }})</p>
-      <img :src="product.image" :alt="product.title">
+      <p><span>Categoría:</span> {{ product.category.name }}</p>
+      <img :src="product.images[0]" :alt="product.title">
       <button @click="handleModificar">Modificar</button>
       <button @click="handleEliminar">Eliminar</button>
     </div>
@@ -31,14 +30,12 @@ export default {
     };
   },
   methods: {
-    handleModificar(){
-      console.log("se quiere modificar producto");
-    },
     handleEliminar() {
       axios.delete(`/products/${this.productId}`)
         .then(response => {
           console.log('Producto eliminado:', response.data);
           this.product = null; // Limpiar el producto eliminado
+          this.$emit('ver-producto');
         })
         .catch(error => {
           console.error('Error al eliminar el producto:', error);
@@ -87,7 +84,6 @@ span {
   color: crimson;
   font-weight: bolder;
 }
-
 
 button {
   margin: auto;

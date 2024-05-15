@@ -2,7 +2,7 @@
 
   <headerComp @ver-producto="handleVerProductos" @add-producto="handleAddProducto"></headerComp>
   <verProductosComp v-show="verProductos" @ver-mas="handleVerMas"></verProductosComp>
-  <detalleProductoComp v-if="detalleId && !verProductos" v-show="verDetalle" :productId="detalleId" @modificar="handleModificar"></detalleProductoComp>
+  <detalleProductoComp v-if="detalleId && !verProductos" v-show="verDetalle" :productId="detalleId" @modificar="handleModificar" @ver-producto="handleVerProductos"></detalleProductoComp>
   <agregarProducto v-if="verAgregar" v-show="verAgregar"></agregarProducto>
   <modificarProducto v-if="verModificar" v-show="verModificar" :productId="productoModificar" @ver-mas="handleVerMas"></modificarProducto>
   

@@ -2,7 +2,7 @@
 import axios from 'axios';
 
 const axiosInstance = axios.create({
-  baseURL: 'https://fakestoreapi.com'
+  baseURL: 'https://api.escuelajs.co/api/v1/'
 });
 
 export default axiosInstance;

@@ -4,7 +4,7 @@
     <div class="product-content">
       <h3>{{ product.title }}</h3>
       <div class="product-img">
-        <img :src="product.image" :alt="product.title">
+        <img :src="product.images[0]" :alt="product.title">
       </div>
       <div class="product-info">
         <h4>Precio</h4>
@@ -14,10 +14,8 @@
         <p class="descripcion">{{ product.description }}</p>
 
         <h4>Categoría</h4>
-        <p >{{ product.category }}</p>
+        <p >{{ product.category.name }}</p>
 
-        <h4>Rating</h4>
-        <p>{{ product.rating.rate }}⭐ ({{ product.rating.count }})</p>
       </div>
     </div>
     <button @click="verMas">Ver mas</button>

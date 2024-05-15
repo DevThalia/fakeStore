@@ -15,12 +15,12 @@
         <textarea id="description" v-model="newProduct.description" required></textarea>
       </div>
       <div>
-        <label for="category">Categoría:</label>
-        <input type="text" id="category" v-model="newProduct.category" required>
+        <label for="categoryId">ID de categoría:</label>
+        <input type="number" id="categoryId" v-model.number="newProduct.categoryId" required>
       </div>
       <div>
         <label for="image">URL de la imagen:</label>
-        <input type="url" id="image" v-model="newProduct.image" required>
+        <input type="url" id="image" v-model="newProduct.images[0]" required>
       </div>
       <button type="submit">Agregar Producto</button>
     </form>
@@ -28,6 +28,8 @@
 </template>
 
 <script>
+import axios from '../axios.js';
+
 export default {
   name: 'agregarProducto',
   data() {
@@ -36,26 +38,30 @@ export default {
         title: '',
         price: 0,
         description: '',
-        category: '',
-        image: ''
+        categoryId: 0,
+        images: ['']
       }
     };
   },
   methods: {
     agregarProducto() {
-      // Emitir evento para agregar el nuevo producto
-      //conexion a la api y hacer el put a la api
-      // Limpiar el formulario después de agregar el producto
-      this.limpiarFormulario();
+      axios.post('products/', this.newProduct)
+        .then(response => {
+          console.log('Producto agregado:', response.data);
+          this.limpiarFormulario();
+          this.$emit('ver-mas', 1);
+        })
+        .catch(error => {
+          console.error('Error al agregar el producto:', error);
+        });
     },
     limpiarFormulario() {
-      // Limpiar los campos del formulario después de agregar el producto
       this.newProduct = {
         title: '',
         price: 0,
         description: '',
-        category: '',
-        image: ''
+        categoryId: 0,
+        images: ['']
       };
     }
   }
