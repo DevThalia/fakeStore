@@ -4,26 +4,26 @@
     <div v-if="product" class="producto">
       <div>
         <label for="title">Título:</label>
-        <input type="text" id="title" v-model="product.title" required>
+        <input type="text" id="title" v-model="newProduct.title" required>
       </div>
       <div>
         <label for="price">Precio:</label>
-        <input type="number" id="price" v-model.number="product.price" required>
+        <input type="number" id="price" v-model.number="newProduct.price" required>
       </div>
       <div>
         <label for="description">Descripción:</label>
-        <textarea id="description" v-model="product.description" required></textarea>
+        <textarea id="description" v-model="newProduct.description" required></textarea>
       </div>
       <div>
         <label for="category">Categoría:</label>
-        <input type="text" id="category" v-model="product.category" required>
+        <input type="text" id="category" v-model="newProduct.category" required>
       </div>
       <div>
         <label for="image">URL de la imagen:</label>
-        <input type="url" id="image" v-model="product.image" required>
+        <input type="url" id="image" v-model="newProduct.image" required>
       </div>
       <button @click="guardarCambios">Guardar Cambios</button>
-      <button @click="cancelar">Cancelar</button>
+      <button @click="handleCancelar">Cancelar</button>
     </div>
     <div v-else>
       Cargando...
@@ -32,6 +32,8 @@
 </template>
 
 <script>
+import axios from '../axios.js';
+
 export default {
   name: 'modificarProducto',
   props: {
@@ -40,35 +42,39 @@ export default {
   data() {
     return {
       product: null,
+      newProduct: null,
     };
   },
   mounted() {
     if (this.productId) {
-      fetch('https://fakestoreapi.com/products/' + this.productId.toString())
+      axios.get(`/products/${this.productId}`)
         .then(response => {
-          if (!response.ok) {
-            throw new Error('No se pudo obtener el producto');
-          }
-          return response.json();
-        })
-        .then(data => {
-          this.product = data;
+          this.product = response.data;
+          this.newProduct = { ...this.product };
         })
         .catch(error => {
-          console.error('Error:', error);
+          console.error('Error al obtener el producto:', error);
         });
     }
   },
   methods: {
     guardarCambios() {
-      if (this.product) {
-        this.$emit('guardar-cambios', this.product);
+      if (this.newProduct) {
+        axios.put(`/products/${this.productId}`, this.newProduct)
+          .then(response => {
+            console.log('Producto actualizado:', response.data);
+            this.$emit('ver-mas', this.productId);
+          })
+          .catch(error => {
+            console.error('Error al guardar los cambios:', error);
+          });
       } else {
         alert("No hay ningún producto para modificar.");
       }
     },
-    cancelar() {
-      this.$emit('cancelar-modificacion');
+    handleCancelar() {
+      // Emitimos un evento para cancelar la modificación
+      this.$emit('ver-mas', this.productId);
     }
   }
 };
