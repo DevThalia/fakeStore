@@ -1,10 +1,10 @@
 <template>
-
+  <!--TODO: (global y opcional) no se actualizan los productos al insertar / modificar o eliminar hasta que se refresca la pagina -ARREGLAR-->
   <headerComp @ver-producto="handleVerProductos" @add-producto="handleAddProducto"></headerComp>
   <verProductosComp v-show="verProductos" @ver-mas="handleVerMas"></verProductosComp>
   <detalleProductoComp v-if="detalleId && !verProductos" v-show="verDetalle" :productId="detalleId" @modificar="handleModificar" @ver-producto="handleVerProductos"></detalleProductoComp>
-  <agregarProducto v-if="verAgregar" v-show="verAgregar"></agregarProducto>
-  <modificarProducto v-if="verModificar" v-show="verModificar" :productId="productoModificar" @ver-mas="handleVerMas"></modificarProducto>
+  <agregarProducto v-if="verAgregar" v-show="verAgregar"></agregarProducto><!--TODO: no deja agregar la imagen, mirar documentacion de la api -ARREGLAR-->
+  <modificarProducto v-if="verModificar" v-show="verModificar" :productId="productoModificar" @ver-mas="handleVerMas"></modificarProducto><!--TODO: no carga bien la url de la imagen -ARREGLAR-->
   
   <footerComp></footerComp>
 
